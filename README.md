@@ -4,7 +4,7 @@
 
 This is a stock management application for a store, developed in Java. The application allows users to perform various actions and queries related to products, orders, distributors, and stocks.
 
-### Actions / Interogatiions:
+### Actions / Interrogations:
 
 * Add Product
 * Modify Product Quantity
@@ -20,10 +20,10 @@ This is a stock management application for a store, developed in Java. The appli
 
 ### Types of Objects:
 
-* Product (+ProductFactory)
+* Product
     * ElectronicProduct
     * FoodProduct
-* Distributor (+DistributorFactory)
+* Distributor
 * Address
 * Order
 * MainService
