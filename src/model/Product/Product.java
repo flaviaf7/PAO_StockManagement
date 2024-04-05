@@ -1,18 +1,21 @@
 package model.Product;
-import model.Order;
+import model.Product.*;
+import model.order.*;
+import java.util.*;
 
-public abstract class Product {
+public class Product implements ProductInterface{
     protected int product_id;
-    protected float price;
-    protected Order order;
+    protected Double price;
     protected String name;
 
-    public float getPrice(){
-        return price;
+    public Product(){}
+    public Product(String name, Double price){
+        this.name = name;
+        this.price = price;
     }
 
-    public Order getOrder(){
-        return order;
+    public Double getPrice(){
+        return price;
     }
 
     public String getName(){
@@ -27,12 +30,8 @@ public abstract class Product {
         this.product_id = product_id;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public void setName(String name) {

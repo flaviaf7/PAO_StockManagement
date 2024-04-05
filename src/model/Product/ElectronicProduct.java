@@ -1,9 +1,14 @@
 package model.Product;
-
+import java.util.*;
 public class ElectronicProduct extends Product{
     private String brand;
     private String model;
 
+    public ElectronicProduct(String name, Double price, String brand, String model){
+        super(name, price);
+        this.brand = brand;
+        this.model = model;
+    }
     public String getBrand() {
         return brand;
     }
@@ -27,8 +32,7 @@ public class ElectronicProduct extends Product{
                 ", model='" + model + '\'' +
                 ", product_id=" + product_id +
                 ", price=" + price +
-                ", order=" + order +
                 ", name='" + name + '\'' +
-                '}';
+                "}\n";
     }
 }

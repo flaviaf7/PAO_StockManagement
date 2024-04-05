@@ -32,7 +32,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "{address_id = " + ID + ", street = " + street +  ", county = " + county + ", postalCode = " + postalCode + ", country = " + country + '}';
+        return "{address_id = " + ID + ", street = " + street +  ", county = " + county + ", postalCode = " + postalCode + ", country = " + country + "}\n";
     }
 
     public String getStreet() {

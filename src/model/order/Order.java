@@ -1,30 +1,29 @@
-package model;
+package model.order;
+import model.Distributor;
 import model.Product.*;
 
 import java.time.LocalDateTime;
+import java.util.Dictionary;
 import java.util.List;
 
 public class Order {
-    final private String orderID;
+    final private Integer orderID;
     final private LocalDateTime orderDate;
     private Distributor distributor;
-    final private List<Product> productList;
-    private String orderStatus;
-    final private double totalAmount;
+    private Dictionary<ProductInterface, Integer> products;
+    private OrderStatus orderStatus;
+    private Double price;
     private LocalDateTime deliveryDate;
 
-    public Order(String orderID, Distributor distributor, List<Product> productList,
-                 String orderStatus, double totalAmount) throws Exception {
-
-        if (productList.isEmpty())
-            throw new Exception("There aren't any products on your order!");
+    public Order(Integer orderID, Distributor distributor, Dictionary<ProductInterface, Integer> products,
+                 OrderStatus orderStatus, Double price){
 
         this.orderID = orderID;
         this.orderDate = LocalDateTime.now();
         this.distributor = distributor;
-        this.productList = productList;
+        this.products = products;
         this.orderStatus = orderStatus;
-        this.totalAmount = totalAmount;
+        this.price = price;
     }
 
     @Override
@@ -33,17 +32,17 @@ public class Order {
                 "orderID='" + orderID + '\'' +
                 ", orderDate=" + orderDate +
                 ", distributor=" + distributor +
-                ", productList=" + productList +
+                ", productList=" + products +
                 ", orderStatus='" + orderStatus + '\'' +
-                ", totalAmount=" + totalAmount +
+                ", totalAmount=" + price +
                 ", deliveryDate=" + deliveryDate +
-                '}';
+                "}\n";
     }
 
     public Integer getDistributorId(){
         return this.distributor.getID();
     }
-    public String getOrderID() {
+    public Integer getOrderID() {
         return orderID;
     }
 
@@ -59,20 +58,18 @@ public class Order {
         this.distributor = distributor;
     }
 
-    public List<Product> getProductList() {
-        return productList;
-    }
+    public Dictionary<ProductInterface, Integer> getProductList(){ return products; }
 
-    public String getOrderStatus() {
+    public OrderStatus getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(String orderStatus) {
+    public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
 
-    public double getTotalAmount() {
-        return totalAmount;
+    public Double getPrice() {
+        return price;
     }
 
     public LocalDateTime getDeliveryDate() {

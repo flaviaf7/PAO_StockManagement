@@ -1,20 +1,24 @@
 package model;
-import model.Product.Product;
+import model.Product.*;
 
-import java.text.ParseException;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.Scanner;
+import java.util.*;
 
 public class Distributor {
     private Integer ID;
     private String name;
     private String emailAddress;
     private Address address;
-    private List<Product> productsSupplied;
+    private List<ProductInterface> productsSupplied;
 
-    public Distributor(String name, String emailAddress, Address address, List<Product> productsSupplied) {
+    public Distributor(String name, String emailAddress, Address address, List<ProductInterface> productsSupplied) {
+        this.name = name;
+        this.emailAddress = emailAddress;
+        this.address = address;
+        this.productsSupplied = productsSupplied;
+    }
+
+    public Distributor(Integer distributorId, String name, String emailAddress, Address address, List<ProductInterface> productsSupplied) {
+        this.ID = distributorId;
         this.name = name;
         this.emailAddress = emailAddress;
         this.address = address;
@@ -22,7 +26,7 @@ public class Distributor {
     }
 
 
-    private void read(Scanner in) throws ParseException {
+    private void read(Scanner in){
         System.out.println("Distributor Name: ");
         this.name = in.nextLine();
         System.out.println("Email address: ");
@@ -42,7 +46,7 @@ public class Distributor {
                 ", emailAddress='" + emailAddress + '\'' +
                 ", address=" + address +
                 ", productsSupplied=" + productsSupplied +
-                '}';
+                "}\n";
     }
 
     public Integer getID() {
@@ -61,7 +65,7 @@ public class Distributor {
         return address;
     }
 
-    public List<Product> getProductsSupplied() {
+    public List<ProductInterface> getProductsSupplied() {
         return productsSupplied;
     }
 
@@ -81,7 +85,7 @@ public class Distributor {
         this.address = address;
     }
 
-    public void setProductsSupplied(List<Product> productsSupplied) {
+    public void setProductsSupplied(List<ProductInterface> productsSupplied) {
         this.productsSupplied = productsSupplied;
     }
 }
