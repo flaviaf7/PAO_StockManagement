@@ -1,11 +1,11 @@
 package model.Product;
-import java.util.*;
+
 public class ElectronicProduct extends Product{
     private String brand;
     private String model;
 
-    public ElectronicProduct(String name, Double price, String brand, String model){
-        super(name, price);
+    public ElectronicProduct(int productId, String name, Double price, String brand, String model){
+        super(productId, name, price);
         this.brand = brand;
         this.model = model;
     }

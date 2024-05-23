@@ -1,7 +1,4 @@
 package model.Product;
-import model.Product.*;
-import model.order.*;
-import java.util.*;
 
 public class Product implements ProductInterface{
     protected int product_id;
@@ -9,7 +6,8 @@ public class Product implements ProductInterface{
     protected String name;
 
     public Product(){}
-    public Product(String name, Double price){
+    public Product(int product_id, String name, Double price){
+        this.product_id = product_id;
         this.name = name;
         this.price = price;
     }
@@ -37,4 +35,10 @@ public class Product implements ProductInterface{
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString(){
+        return "{" + "product_id=" + product_id + ", name='" + name + '\'' + ", price=" + price + '}';
+    }
+
 }

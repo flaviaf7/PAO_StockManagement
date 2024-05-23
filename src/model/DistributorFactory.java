@@ -7,15 +7,16 @@ import java.util.*;
 public class DistributorFactory {
     static private Integer ID = 0;
 
-    public static Distributor createDistributor(String name, String emailAddress, Address address, List<ProductInterface> products) {
-        return new Distributor(++ID, name, emailAddress, address, products);
+    public static Distributor createDistributor(String name, String emailAddress, Address address, String password, List<ProductInterface> products) {
+        return new Distributor(++ID, name, emailAddress, address, password, products);
     }
 
     public static Distributor createDistributor(Scanner scanner) {
         String name;
         String emailaddress;
         Address address;
-        List<ProductInterface> products = new ArrayList<ProductInterface>();
+        String password;
+        List<ProductInterface> products = new ArrayList<>();
 
         System.out.print("Enter distributor name: ");
         name = scanner.next();
@@ -23,9 +24,12 @@ public class DistributorFactory {
         System.out.print("Enter distributor email address: ");
         emailaddress = scanner.next();
 
-        System.out.println("Enter distributor address");
+        System.out.println("Enter distributor address: ");
         address = new Address();
         address.read(scanner);
+
+        System.out.println("Enter distributor password: ");
+        password = scanner.next();
 
         System.out.print("Enter number of products: ");
         int productCount = scanner.nextInt();
@@ -46,6 +50,6 @@ public class DistributorFactory {
             }
         }
 
-        return new Distributor(++ID, name, emailaddress, address, products);
+        return new Distributor(++ID, name, emailaddress, address, password, products);
     }
 }

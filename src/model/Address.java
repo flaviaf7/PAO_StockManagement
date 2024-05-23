@@ -30,11 +30,6 @@ public class Address {
         this.country = in.nextLine();
     }
 
-    @Override
-    public String toString() {
-        return "{address_id = " + ID + ", street = " + street +  ", county = " + county + ", postalCode = " + postalCode + ", country = " + country + "}\n";
-    }
-
     public String getStreet() {
         return street;
     }
@@ -75,5 +70,9 @@ public class Address {
         this.country = country;
     }
 
+    @Override
+    public String toString() {
+        return "{address_id = " + ID + ", street = " + street +  ", county = " + county + ", postalCode = " + postalCode + ", country = " + country + "}\n";
+    }
 
 }

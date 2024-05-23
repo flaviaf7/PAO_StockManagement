@@ -8,45 +8,37 @@ public class Distributor {
     private String name;
     private String emailAddress;
     private Address address;
+    private String password;
     private List<ProductInterface> productsSupplied;
 
-    public Distributor(String name, String emailAddress, Address address, List<ProductInterface> productsSupplied) {
+    public Distributor(String name, String emailAddress, Address address, String password, List<ProductInterface> productsSupplied) {
         this.name = name;
         this.emailAddress = emailAddress;
         this.address = address;
+        this.password = password;
         this.productsSupplied = productsSupplied;
     }
 
-    public Distributor(Integer distributorId, String name, String emailAddress, Address address, List<ProductInterface> productsSupplied) {
+    public Distributor(Integer distributorId, String name, String emailAddress, Address address, String password, List<ProductInterface> productsSupplied) {
         this.ID = distributorId;
         this.name = name;
         this.emailAddress = emailAddress;
         this.address = address;
+        this.password = password;
         this.productsSupplied = productsSupplied;
     }
 
-
-    private void read(Scanner in){
-        System.out.println("Distributor Name: ");
-        this.name = in.nextLine();
-        System.out.println("Email address: ");
-        this.emailAddress = in.nextLine();
-        System.out.println("Address Details: ");
-        Address distributorAddress = new Address();
-        distributorAddress.read(in);
-        this.address = distributorAddress;
-        this.productsSupplied = null;
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Distributor that = (Distributor) o;
+        return Objects.equals(ID, that.ID);
     }
 
     @Override
-    public String toString() {
-        return "Distributor{" +
-                "ID=" + ID +
-                ", name='" + name + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                ", address=" + address +
-                ", productsSupplied=" + productsSupplied +
-                "}\n";
+    public int hashCode() {
+        return Objects.hash(ID);
     }
 
     public Integer getID() {
@@ -65,6 +57,7 @@ public class Distributor {
         return address;
     }
 
+    public String getPassword() { return password; }
     public List<ProductInterface> getProductsSupplied() {
         return productsSupplied;
     }
@@ -87,5 +80,20 @@ public class Distributor {
 
     public void setProductsSupplied(List<ProductInterface> productsSupplied) {
         this.productsSupplied = productsSupplied;
+    }
+
+    public void addProduct(Product product) {
+        this.productsSupplied.add(product);
+    }
+
+    @Override
+    public String toString() {
+        return "Distributor{" +
+                "ID=" + ID +
+                ", name='" + name + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", address=" + address +
+                ", productsSupplied=" + productsSupplied +
+                "}\n";
     }
 }

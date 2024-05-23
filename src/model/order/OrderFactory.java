@@ -3,19 +3,19 @@ import model.*;
 import model.Product.*;
 
 import java.util.*;
-import java.time.LocalDateTime;
 
 public class OrderFactory {
-    static final Integer orderId = 0;
+    static Integer orderId = 0;
 
-    public static Order createOrder(Distributor distributor, Dictionary<ProductInterface, Integer> products, OrderStatus orderStatus, Double price) {
-        return new Order(orderId, distributor, products, orderStatus, price);
+    public static Order createOrder(Distributor distributor, Hashtable<ProductInterface, Integer> products, OrderStatus orderStatus, Double price) {
+        return new Order(++orderId, distributor, products, orderStatus, price);
     }
 
     public static Order createOrder(Scanner scanner) {
         Distributor distributor;
         Double price;
-        Dictionary<ProductInterface, Integer> products = new Hashtable<>();
+        orderId++;
+        Hashtable<ProductInterface, Integer> products = new Hashtable<>();
 
         System.out.println("Enter distributor details:");
         distributor = DistributorFactory.createDistributor(scanner);
@@ -29,11 +29,11 @@ public class OrderFactory {
         for (int i = 0; i < productCount; i++) {
             System.out.print("Enter product type (1 - ProductItem, 2 - FoodProduct, 3 - ElectronicProduct): ");
             int productType = scanner.nextInt();
+            int quantity = scanner.nextInt();
             switch (productType) {
                 case 1:
                     Product productItem = ProductFactory.createProduct(scanner);
                     System.out.print("Enter quantity: ");
-                    Integer quantity = scanner.nextInt();
                     products.put(productItem, quantity);
                     break;
                 case 2:

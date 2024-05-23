@@ -6,16 +6,24 @@ This is a stock management application for a store, developed in Java. The appli
 
 ### Actions / Interrogations:
 
-* Add Product
-* Modify Product Quantity
-* Display Total Stock
-* Display Products with Minimum Stock
-* Search for a Product by Name
-* Display Distributor Details
-* Modify Distributor Details
-* Place an Order
-* Display Order Details
-* Display Order History
+* Employee:
+  * Display all Distributors
+  * List Products from a Distributor
+  * Place an Order
+  * Display all Orders
+  * Display Order Details
+  * Display Order Status
+
+* Distributor: (needs to connect with email & password)
+  * Order Management:
+    * Display all Orders
+    * Update Order status
+    * Delete Order
+  * Product Management:
+    * Display all Products  
+    * Add Product
+    * Modify Product Quantity
+    * Delete Product
 
 
 ### Types of Objects:
@@ -23,8 +31,13 @@ This is a stock management application for a store, developed in Java. The appli
 * Product
     * ElectronicProduct
     * FoodProduct
+    * ProductFactory
 * Distributor
+  * DistributorFactory
 * Address
 * Order
-* MainService
 * Main 
+* MainService
+* DistributorService
+* OrderService
+* ProductService
