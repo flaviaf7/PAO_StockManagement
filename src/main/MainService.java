@@ -313,7 +313,7 @@ public class MainService {
         scanner.nextLine();
 
         Distributor selectedDistributor = distributorService.getDistributorById(distributorId);
-        if (selectedDistributor.getProductsSupplied().isEmpty()) {
+        if (selectedDistributor.getProductsSupplied() == null || selectedDistributor.getProductsSupplied().isEmpty()) {
             System.out.println("The selected distributor does not have any products supplied. Cannot create an order.");
             return;
         }
@@ -341,7 +341,7 @@ public class MainService {
 
             System.out.println("Enter quantity: ");
             Integer quantity = scanner.nextInt();
-            scanner.nextLine(); // Consumăm newline-ul
+            scanner.nextLine();
 
             products.put(product, quantity);
             price += product.getPrice() * quantity;

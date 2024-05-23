@@ -2,13 +2,15 @@ package model.order;
 import model.Distributor;
 import model.Product.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Objects;
+import java.util.Set;
 
 public class Order {
-    final private Integer orderID;
+    private Integer orderID;
     final private LocalDateTime orderDate;
     private Distributor distributor;
     private Hashtable<ProductInterface, Integer> products;
@@ -23,6 +25,14 @@ public class Order {
         this.orderDate = LocalDateTime.now();
         this.distributor = distributor;
         this.products = products;
+        this.orderStatus = orderStatus;
+        this.price = price;
+    }
+
+    public Order(Integer orderID, Distributor distributor, OrderStatus orderStatus, Double price) {
+        this.orderID = orderID;
+        this.orderDate = LocalDateTime.now();
+        this.distributor = distributor;
         this.orderStatus = orderStatus;
         this.price = price;
     }
@@ -55,6 +65,7 @@ public class Order {
         return distributor;
     }
 
+    public void setOrderID(int ID) { this.orderID = ID; }
     public void setDistributor(Distributor distributor) {
         this.distributor = distributor;
     }
@@ -94,4 +105,8 @@ public class Order {
                 "}\n";
     }
 
+
+    public void setProducts(Hashtable<ProductInterface, Integer> products) {
+        this.products = products;
+    }
 }

@@ -28,6 +28,14 @@ public class Distributor {
         this.productsSupplied = productsSupplied;
     }
 
+    public Distributor(Integer ID, String name, String emailAddress, Address address, String password) {
+        this.ID = ID;
+        this.name = name;
+        this.emailAddress = emailAddress;
+        this.address = address;
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o){
         if (this == o) return true;

@@ -8,10 +8,10 @@ public enum OrderStatus {
 
     public String toString() {
         return switch (this) {
-            case PENDING -> "Pending";
-            case ACCEPTED -> "Accepted";
-            case REJECTED -> "Rejected";
-            case DELIVERED -> "Delivered";
+            case PENDING -> "PENDING";
+            case ACCEPTED -> "ACCEPTED";
+            case REJECTED -> "REJECTED";
+            case DELIVERED -> "DELIVERED";
         };
     }
 }

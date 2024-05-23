@@ -2,6 +2,7 @@ package model.order;
 import model.*;
 import model.Product.*;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class OrderFactory {

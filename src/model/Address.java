@@ -13,6 +13,15 @@ public class Address {
         this.country = country;
     }
 
+    public Address(int ID, String street, String city, String county, String postalCode, String country) {
+        this.ID = ID;
+        this.street = street;
+        this.city = city;
+        this.county = county;
+        this.postalCode = postalCode;
+        this.country = country;
+    }
+
     public Address(Scanner in){
         this.read(in);
     }
@@ -29,6 +38,8 @@ public class Address {
         System.out.println("Country: ");
         this.country = in.nextLine();
     }
+
+    public int getID() {return ID;}
 
     public String getStreet() {
         return street;
@@ -49,6 +60,8 @@ public class Address {
     public String getCountry() {
         return country;
     }
+
+    public void setID(int ID) { this.ID = ID; }
 
     public void setStreet(String street) {
         this.street = street;
