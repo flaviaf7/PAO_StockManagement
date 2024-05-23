@@ -9,6 +9,7 @@ import model.Product.ElectronicProduct;
 import model.Product.FoodProduct;
 import model.Product.ProductFactory;
 import model.Product.ProductInterface;
+import services.AuditService;
 import services.DistributorService;
 import services.ProductService;
 import services.OrderService;
@@ -31,7 +32,7 @@ public class Main {
 
         seed.populateIfNeeded();
 
-
+        AuditService.getInstance().logAction("openingProject");
 
         MainService mainService = MainService.init(orderService, distributorService, productService, scanner);
         mainService.initEmployeeItems();

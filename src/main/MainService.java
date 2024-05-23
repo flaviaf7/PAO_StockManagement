@@ -87,13 +87,16 @@ public class MainService {
 
         switch (option) {
             case 1:
+                AuditService.getInstance().logAction("Connected as employee.");
                 connectAsEmployee();
                 break;
             case 2:
+                AuditService.getInstance().logAction("Connected as distributor.");
                 connectAsDistributor();
                 break;
             case 3:
                 exitMainMenu();
+                AuditService.getInstance().logAction("Exited main menu.");
                 break;
             default:
                 System.out.println("Invalid option. Please choose a valid option.");
@@ -108,24 +111,31 @@ public class MainService {
             int option2 = scanner.nextInt();
             switch (option2) {
                 case 1:
+                    AuditService.getInstance().logAction("Listed all Distributors.");
                     listAllDistributors();
                     break;
                 case 2:
+                    AuditService.getInstance().logAction("Listed all Products Supplied.");
                     showAllProductsSupplied();
                     break;
                 case 3:
+                    AuditService.getInstance().logAction("Created order.");
                     createOrder();
                     break;
                 case 4:
+                    AuditService.getInstance().logAction("Listed all Orders.");
                     listAllOrders();
                     break;
                 case 5:
+                    AuditService.getInstance().logAction("Showed order details.");
                     seeOrderDetails();
                     break;
                 case 6:
+                    AuditService.getInstance().logAction("Showed order status.");
                     seeOrderStatus();
                     break;
                 case 7:
+                    AuditService.getInstance().logAction("Exited employee menu.");
                     System.out.println("Exiting Employee Menu.");
                     return;
                 default:
@@ -164,6 +174,7 @@ public class MainService {
 
             if (selectedDistributor.getEmailAddress().equals(email) && selectedDistributor.getPassword().equals(password)) {
                 System.out.println("Login successful!");
+                AuditService.getInstance().logAction("Logged in as Distributor.");
                 distributorMenu(selectedDistributor);
             } else {
                 System.out.println("Incorrect email address or password. Please try again.");
@@ -186,15 +197,19 @@ public class MainService {
 
             switch (option) {
                 case 1:
+                    AuditService.getInstance().logAction("Listed all Orders of a distributor.");
                     orderService.listAllOrders(distributor);
                     break;
                 case 2:
+                    AuditService.getInstance().logAction("Updated order.");
                     orderService.updateOrder(scanner, distributor);
                     break;
                 case 3:
+                    AuditService.getInstance().logAction("Removed order.");
                     orderService.removeOrder(scanner, distributor);
                     break;
                 case 4:
+                    AuditService.getInstance().logAction("Exited order management menu.");
                     return;
                 default:
                     System.out.println("Invalid option. Please choose a valid option.");
@@ -225,18 +240,23 @@ public class MainService {
 
             switch (option) {
                 case 1:
+                    AuditService.getInstance().logAction("Listed all products of a distributor.");
                     productService.listAllProducts(distributor);
                     break;
                 case 2:
+                    AuditService.getInstance().logAction("Added a product.");
                     productService.addProduct(scanner, distributor);
                     break;
                 case 3:
+                    AuditService.getInstance().logAction("Updated a product.");
                     productService.updateProduct(scanner, distributor);
                     break;
                 case 4:
+                    AuditService.getInstance().logAction("Removed a product.");
                     productService.removeProduct(scanner, distributor);
                     break;
                 case 5:
+                    AuditService.getInstance().logAction("Exited product management menu.");
                     return;
                 default:
                     System.out.println("Invalid option. Please choose a valid option.");
@@ -270,12 +290,15 @@ public class MainService {
 
             switch (option) {
                 case 1:
+                    AuditService.getInstance().logAction("Entered order management menu.");
                     orderManagement(distributor);
                     break;
                 case 2:
+                    AuditService.getInstance().logAction("Enter product management menu.");
                     productManagement(distributor);
                     break;
                 case 3:
+                    AuditService.getInstance().logAction("Exited distributor menu.");
                     System.out.println("Exiting distributor session.");
                     return;
                 default:
